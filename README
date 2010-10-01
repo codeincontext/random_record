@@ -1,0 +1,22 @@
+random_record
+===
+
+random_record is a plugin that adds a 'random' method to all ActiveRecord classes. It will return a random record of that class from the database. It also accepts find conditions.
+
+Other solutions either require loading a list of all IDs in the table to choose from, or pick a random number, then check that a record of that ID exists in the table. Both seem silly to me.
+
+Installation
+===
+
+I guess you want to install as a plugin:
+    script/plugin install git://github.com/skattyadz/random_record.git
+
+Usage
+===
+
+class Post < ActiveRecord::Base
+end
+
+Post.random # returns a random record from the 'posts' table
+
+Post.random(:public=>true) # returns a random, public record
